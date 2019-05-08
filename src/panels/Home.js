@@ -5,8 +5,6 @@ import { Panel, ListItem, Button, Group, Div,PanelHeader } from '@vkontakte/vkui
 const Home = ({ id, go}) => (
 	<Panel id={id}>
 		<PanelHeader>Example</PanelHeader>
-		
-
 		<Group title="Navigation Example">
 			<Div>
 				<Button size="xl" level="2" onClick={go} data-to="page1">

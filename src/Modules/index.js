@@ -1,4 +1,4 @@
-import Articles from './Articles';
+import getArticles from './getArticles';
+import getArticle from './getArticle';
 
-
-export { Articles };
+export { getArticles, getArticle };

@@ -6,6 +6,7 @@ import '@vkontakte/vkui/dist/vkui.css';
 import Home from './panels/Home';
 import Page1 from './panels/Page1';
 import Page2 from './panels/Page2';
+import Panel_ from './panels/Panel_';
 
 class App extends React.Component {
 	constructor(props) {
@@ -29,7 +30,7 @@ class App extends React.Component {
 				<Home id="home"  go={this.go} />
 				<Page1 id="page1" go={this.go} />
 				<Page2 id="page2" go={this.go} />
-
+                
 			</View>
 		);
 	}

@@ -28,6 +28,7 @@ const getArticle = articleId => {
     }
   ];
 
+  // эмуляция поиска в базе данных
   const article = database.find(({ id }) => id === articleId);
 
   return article ? article : null;

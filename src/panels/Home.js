@@ -11,7 +11,7 @@ const Home = ({ id, go}) => (
 		<Group title="Navigation Example">
 			<Div>
 				<Button size="xl" level="2" onClick={go} data-to="page1">
-					go to panels
+				go to panels
 				</Button>
 			</Div>
 		</Group>

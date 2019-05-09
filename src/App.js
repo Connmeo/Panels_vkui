@@ -1,43 +1,13 @@
 import React from 'react';
-import connect from '@vkontakte/vkui-connect';
-import { View, ScreenSpinner } from '@vkontakte/vkui';
+import { View } from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
 
-import Home from './Panels/Home';
-import Article from './Panels/Article';
-
-import * as API from './Modules';
+import { Home, Page1, Page2, Page3 } from './Panels';
 
 class App extends React.Component {
+  // state компонента можно писать без использования constructor
   state = {
-    activePanel: 'home',
-    articles: [],
-    activeArticle: {},
-    popout: null
-  };
-
-  setPopout = popout => {
-    this.setState({ popout });
-  };
-
-  setLoading = () => {
-    this.setState({ popout: <ScreenSpinner /> });
-  };
-
-  getArticles = () => {
-    this.setLoading();
-
-    const updatedArticles = API.getArticles();
-
-    this.setState({ articles: updatedArticles, popout: null });
-  };
-
-  getArticle = id => {
-    this.setLoading();
-
-    const updatedActiveArticle = API.getArticle(id);
-
-    this.setState({ activeArticle: updatedActiveArticle, popout: null });
+    activePanel: 'home'
   };
 
   go = e => {
@@ -45,18 +15,12 @@ class App extends React.Component {
   };
 
   render() {
-    const { activePanel, activeArticle, articles, popout } = this.state;
-
     return (
-      <View activePanel={this.state.activePanel} popout={popout}>
-        <Home
-          id="home"
-          articles={articles}
-          getArticles={this.getArticles}
-          getArticle={this.getArticle}
-          go={this.go}
-        />
-        <Article id="article" article={activeArticle} go={this.go} />
+      <View activePanel={this.state.activePanel}>
+        <Home id="home" go={this.go} />
+        <Page1 id="page1" go={this.go} />
+        <Page2 id="page2" go={this.go} />
+        <Page3 id="page3" go={this.go} />
       </View>
     );
   }

@@ -4,35 +4,26 @@ import {
   View,
   Panel,
   Group,
-  ListItem,
   PanelHeader,
-  Link,
-  Div,
-  CellButton
+  HeaderButton,
+  Div
 } from '@vkontakte/vkui';
+import Icon24Back from '@vkontakte/icons/dist/24/back';
 
-class Article extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      activePanel: 'page1'
-    };
-  }
-
-  render() {
-    var { id } = this.props;
-    return (
-      <Panel id={id}>
-        <PanelHeader>Panel 1</PanelHeader>
-        <Group>
-          <CellButton onClick={() => this.setState({ activePanel: 'panel_' })}>
-            Go to panel 2
-          </CellButton>
-        </Group>
-      </Panel>
-    );
-  }
-}
+const Article = ({ article, id, go }) => (
+  <Panel id={id}>
+    <PanelHeader
+      left={
+        <HeaderButton onClick={go} data-to="home">
+          <Icon24Back />
+        </HeaderButton>
+      }>
+      {article.name}
+    </PanelHeader>
+    <Group>
+      <Div>{article.text}</Div>
+    </Group>
+  </Panel>
+);
 
 export default Article;
